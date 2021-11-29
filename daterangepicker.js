@@ -728,7 +728,7 @@ DateRangePicker.prototype = {
 
             var monthHtml = '<select class="monthselect">';
             for (var m = 0; m < 12; m++) {
-                if ((!inMinYear || (minDate && m >= minDate.month())) && (!inMaxYear || (maxDate && m <= maxDate.month()))) {
+                if ((!inMinYear || (minDate && m >= getMonth(minDate))) && (!inMaxYear || (maxDate && m <= getMonth(maxDate)))) {
                     monthHtml += "<option value='" + m + "'" +
                         (m === currentMonth ? " selected='selected'" : "") +
                         ">" + this.locale.monthNames[m] + "</option>";
@@ -1455,7 +1455,7 @@ DateRangePicker.prototype = {
             if (this.linkedCalendars)
                 this.rightCalendar.month = add(this.leftCalendar.month, {months: 1})
         } else {
-            this.rightCalendar.month.month(month).year(year);
+            this.rightCalendar.month = setYear(setMonth(this.rightCalendar.month, month), year);
             if (this.linkedCalendars)
                 this.leftCalendar.month = sub(this.rightCalendar.month, {months: 1})
         }
