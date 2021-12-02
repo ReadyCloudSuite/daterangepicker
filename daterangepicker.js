@@ -31,6 +31,7 @@ import {
     setMinutes,
     setMonth,
     setSeconds,
+    setYear,
     startOfDay,
     startOfWeek,
     startOfYear,
