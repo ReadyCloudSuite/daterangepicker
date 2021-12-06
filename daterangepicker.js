@@ -79,8 +79,12 @@ var DateRangePicker = function(element, options, cb) {
 
     const firstDOW = startOfWeek(new Date())
     const firstMonth = startOfYear(new Date())
-    const shortWeekDaysArray = Array.from(Array(7)).map((e, i) => format(add(firstDOW, {days: i}), 'EEEEEE'))
-    const shortMonthsArray = Array.from(Array(12)).map((e, i) => format(add(firstMonth, {months: i}), 'MMM'))
+    const shortWeekDaysArray = Array.from(Array(7)).map(function(e, i) {
+        return format(add(firstDOW, {days: i}), 'EEEEEE')
+    })
+    const shortMonthsArray = Array.from(Array(12)).map(function(e, i) {
+        return format(add(firstMonth, {months: i}), 'MMM')
+    })
 
     this.locale = {
         direction: 'ltr',
